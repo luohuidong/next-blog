@@ -1,0 +1,45 @@
+.artical {
+  margin-top: 50px;
+  color: #2c3e50;
+
+  .date {
+    margin-bottom: 60px;
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 35px;
+  }
+
+  h2 {
+    margin: 50px 0 40px;
+    padding-bottom: 10px;
+    font-size: 26px;
+    border-bottom: 1px solid rgb(234, 236, 239);
+  }
+
+  h3 {
+    margin: 40px 0;
+  }
+
+  p {
+    margin: 30px 0;
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  ol,
+  ul {
+    li {
+      font-size: 16px;
+      line-height: 27px;
+    }
+  }
+}
