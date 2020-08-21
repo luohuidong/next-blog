@@ -29,8 +29,13 @@ export function getSortedPostsData() {
     };
   });
 
+  interface PostData {
+    id: string;
+    date: string;
+  }
+
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  return allPostsData.sort((a: PostData, b: PostData) => {
     if (a.date < b.date) {
       return 1;
     } else {
