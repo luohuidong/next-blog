@@ -24,12 +24,14 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
 
-      <section className={utilStyles.headingMd} style={{ textAlign: "center" }}>
+      <section
+        className={utilStyles.headingMd}
+        style={{ textAlign: "center", marginBottom: 50 }}
+      >
         <p>职业吹牛逼，业余写代码</p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>

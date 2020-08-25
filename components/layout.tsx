@@ -82,7 +82,9 @@ export default function Layout({
         </div>
       )}
 
-      <footer className={styles.footer}>网站备案号：粤ICP备18108480号-1</footer>
+      <footer className={styles.footer}>
+        <a href="https://beian.miit.gov.cn/">网站备案号：粤ICP备18108480号</a>
+      </footer>
     </div>
   );
 }

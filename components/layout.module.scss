@@ -34,6 +34,10 @@
 .footer {
   margin-top: 100px;
 
-  color: #666;
   text-align: center;
+
+  a {
+    text-decoration: none;
+    color: #666;
+  }
 }
