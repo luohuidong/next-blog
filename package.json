@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 9001"
+    "start": "next start -p 9001",
+    "draft": "node ./scripts/draft.js",
+    "publish": "node ./scripts/publish.js"
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "date-fns": "^2.15.0",
     "gray-matter": "^4.0.2",
     "next": "^9.5.2",
     "normalize.css": "^8.0.1",
