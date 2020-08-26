@@ -1,7 +1,10 @@
 import React from "react";
-import { parseISO, format } from "date-fns";
 
-export default function Date({ dateString }) {
-  const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, "LLLL d, yyyy")}</time>;
+export default function formatDate({ timestamp }: { timestamp: string }) {
+  const time = new Date(Number(timestamp));
+  const year = time.getFullYear();
+  const month = time.getMonth() + 1;
+  const date = time.getDate();
+  const formattedDate = `${year}-${month}-${date}`;
+  return <time dateTime={formattedDate}>{formattedDate}</time>;
 }

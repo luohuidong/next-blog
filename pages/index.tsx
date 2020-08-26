@@ -8,15 +8,6 @@ import utilStyles from "@/styles/utils.module.css";
 import { getSortedPostsData } from "@/lib/posts";
 import Date from "@/components/dates";
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-};
-
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
@@ -33,14 +24,14 @@ export default function Home({ allPostsData }) {
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, timestamp, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <Date timestamp={timestamp} />
               </small>
             </li>
           ))}
@@ -49,3 +40,12 @@ export default function Home({ allPostsData }) {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+};
