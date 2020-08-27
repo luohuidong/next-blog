@@ -12,7 +12,6 @@ function publish() {
   }
 
   const originFilePath = path.resolve(__dirname, "..", "draft", `${title}.md`);
-  console.log("publish -> originFilePath", originFilePath);
   const distFilePath = path.resolve(
     __dirname,
     "..",

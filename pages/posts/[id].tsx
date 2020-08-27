@@ -28,7 +28,7 @@ export default function Post({ postData }) {
         <h1>{postData.title}</h1>
 
         <div className={postsStyles.date}>
-          <Date timestamp={postData.date} />
+          <Date timestamp={postData.timestamp} />
         </div>
 
         <div dangerouslySetInnerHTML={createMarkup()} />
