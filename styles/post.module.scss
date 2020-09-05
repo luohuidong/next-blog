@@ -59,4 +59,35 @@
     border-left: 3px solid rgb(223, 226, 229);
     color: rgb(153, 153, 153);
   }
+
+  table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+
+    $border: 1px solid #dfe2e5;
+    %row {
+      height: 30px;
+      padding: 0px 10px;
+      border: $border;
+    }
+
+    thead {
+      th {
+        @extend %row;
+      }
+    }
+
+    tbody {
+      tr {
+        @extend %row;
+        min-width: 100px;
+
+        td:not(:first-child) {
+          border-left: $border;
+        }
+      }
+
+    }
+  }
 }
