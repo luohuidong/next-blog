@@ -19,13 +19,9 @@ export default function Home({ allPostsData }: Props) {
   return (
     <HomepageLayout>
       <section
-        className={utilStyles.headingMd}
-        style={{ textAlign: "center", marginBottom: 50 }}
+        className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
+        style={{ marginTop: 30 }}
       >
-        <p>职业吹牛逼，业余写代码</p>
-      </section>
-
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, data }) => (
             <li className={utilStyles.listItem} key={id}>
