@@ -6,7 +6,7 @@ import Prism from "prismjs";
 import postsStyles from "styles/post.module.scss";
 
 import { getAllPostIds, getPostData } from "lib/posts";
-import Layout from "@/components/layout";
+import Layout from "@/components/PostPageLayout";
 import Date from "@/components/dates";
 
 export default function Post({ postData }) {
@@ -21,7 +21,7 @@ export default function Post({ postData }) {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{postData.title + " · 罗惠东的博客"}</title>
       </Head>
 
       <article className={postsStyles.artical}>
