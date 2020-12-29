@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths } from "next";
 import Prism from "prismjs";
 
 import postsStyles from "styles/post.module.scss";
