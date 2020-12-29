@@ -1,12 +1,13 @@
 import React from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import classnames from "classnames";
 
 import HomepageLayout from "@/components/HomePageLayout";
 import utilStyles from "@/styles/utils.module.css";
 import { getSortedPostsData, MetaData } from "@/lib/posts";
 import Date from "@/components/dates";
+import styles from "@/styles/index.module.scss";
 
 interface Props {
   allPostsData: {
@@ -22,14 +23,15 @@ export default function Home({ allPostsData }: Props) {
         className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
         style={{ marginTop: 30 }}
       >
-        <ul className={utilStyles.list}>
+        <ul className={classnames(utilStyles.list, styles.list)}>
           {allPostsData.map(({ id, data }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li
+              className={classnames(utilStyles.listItem, styles.listItem)}
+              key={id}
+            >
               <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{data.title}</a>
+                <a className={styles.listItemTitle}>{data.title}</a>
               </Link>
-
-              <br />
 
               <small className={utilStyles.lightText}>
                 <Date timestamp={data.timestamp} />

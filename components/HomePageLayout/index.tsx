@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
+import classnames from "classnames";
 
-import LayoutFooter from "@/components/LayoutFooter";
+import Layout from "../Layout";
 import styles from "./index.module.scss";
 import utilStyles from "@/styles/utils.module.css";
 
@@ -9,9 +10,9 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function Layout(props: Props) {
+export default function HomePageLayout(props: Props) {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="罗惠东的博客" />
@@ -26,16 +27,16 @@ export default function Layout(props: Props) {
         <>
           <img
             src="/images/profile.jpeg"
-            className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+            className={classnames(styles.headerImage, utilStyles.borderCircle)}
             draggable={false}
           />
-          <h1 className={utilStyles.heading2Xl}>罗惠东</h1>
+          <h1 className={classnames(utilStyles.heading2Xl, styles.title)}>
+            罗惠东
+          </h1>
         </>
       </header>
 
-      <main>{props.children}</main>
-
-      <LayoutFooter />
-    </div>
+      <main className={styles.main}>{props.children}</main>
+    </Layout>
   );
 }
