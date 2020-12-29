@@ -31,7 +31,10 @@ export default function Post({ postData }) {
           <Date timestamp={postData.timestamp} />
         </div>
 
-        <div dangerouslySetInnerHTML={createMarkup()} />
+        <div
+          dangerouslySetInnerHTML={createMarkup()}
+          className={postsStyles.code}
+        />
       </article>
     </Layout>
   );
