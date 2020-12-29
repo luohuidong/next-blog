@@ -3,18 +3,21 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 
-import Layout, { siteTitle } from "@/components/layout";
+import HomepageLayout from "@/components/HomePageLayout";
 import utilStyles from "@/styles/utils.module.css";
-import { getSortedPostsData } from "@/lib/posts";
+import { getSortedPostsData, MetaData } from "@/lib/posts";
 import Date from "@/components/dates";
 
-export default function Home({ allPostsData }) {
-  return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+interface Props {
+  allPostsData: {
+    id: string;
+    data: MetaData;
+  }[];
+}
 
+export default function Home({ allPostsData }: Props) {
+  return (
+    <HomepageLayout>
       <section
         className={utilStyles.headingMd}
         style={{ textAlign: "center", marginBottom: 50 }}
@@ -24,20 +27,22 @@ export default function Home({ allPostsData }) {
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, timestamp, title }) => (
+          {allPostsData.map(({ id, data }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a>{title}</a>
+                <a>{data.title}</a>
               </Link>
+
               <br />
+
               <small className={utilStyles.lightText}>
-                <Date timestamp={timestamp} />
+                <Date timestamp={data.timestamp} />
               </small>
             </li>
           ))}
         </ul>
       </section>
-    </Layout>
+    </HomepageLayout>
   );
 }
 
