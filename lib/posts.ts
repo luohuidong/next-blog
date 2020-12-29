@@ -38,12 +38,12 @@ export function getSortedPostsData() {
 
   interface PostData {
     id: string;
-    timestamp: string;
+    data: MetaData;
   }
 
   // Sort posts by time
   return allPostsData.sort((a: PostData, b: PostData) => {
-    if (Number(a.timestamp) < Number(b.timestamp)) {
+    if (Number(a.data.timestamp) < Number(b.data.timestamp)) {
       return 1;
     } else {
       return -1;
