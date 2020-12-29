@@ -19,7 +19,7 @@ export default function Layout(props: Props) {
         <meta name="og:title" content={"首页-罗惠东的博客"} />
         <meta name="twitter:card" content="summary_large_image" />
 
-        <title>罗惠东的博客</title>
+        <title>首页 · 罗惠东的博客</title>
       </Head>
 
       <header className={styles.header}>
