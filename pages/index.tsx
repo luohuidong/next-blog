@@ -21,7 +21,7 @@ export default function Home({ allPostsData }: Props) {
     <HomepageLayout>
       <section
         className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
-        style={{ marginTop: 30 }}
+        style={{ marginTop: 30, maxWidth: 750 }}
       >
         <ul className={classnames(utilStyles.list, styles.list)}>
           {allPostsData.map(({ id, data }) => (
