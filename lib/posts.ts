@@ -6,6 +6,12 @@ import html from "remark-html";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
+export interface MetaData {
+  title: string;
+  timestamp: string;
+  tag: string[];
+}
+
 /** 获取排序过的文章数据 */
 export function getSortedPostsData() {
   // Get file names under /posts
@@ -21,11 +27,12 @@ export function getSortedPostsData() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
+    const data = matterResult.data as MetaData
 
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      data
     };
   });
 
