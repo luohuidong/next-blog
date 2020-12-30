@@ -25,11 +25,22 @@ export default function HomePageLayout(props: Props) {
 
       <header className={styles.header}>
         <>
-          <img
-            src="/images/profile.jpeg"
-            className={classnames(styles.headerImage, utilStyles.borderCircle)}
-            draggable={false}
-          />
+          <picture>
+            <source
+              media="(max-width: 500px)"
+              srcSet="http://images.luohuidong.cn/profile.jpeg?imageMogr2/thumbnail/!7p"
+            />
+            <img
+              src="http://images.luohuidong.cn/profile.jpeg?imageMogr2/thumbnail/!13p"
+              alt="头像"
+              className={classnames(
+                styles.headerImage,
+                utilStyles.borderCircle
+              )}
+              draggable={false}
+            />
+          </picture>
+
           <h1 className={classnames(utilStyles.heading2Xl, styles.title)}>
             罗惠东
           </h1>
