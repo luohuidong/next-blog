@@ -1,0 +1,22 @@
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    h1 {
+      flex: 1;
+    }
+  }
+
+  .tagText {
+    margin-right: 25px;
+
+    a:hover {
+      cursor: pointer;
+    }
+  }
+}
