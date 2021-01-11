@@ -27,12 +27,12 @@ export function getSortedPostsData() {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
-    const data = matterResult.data as MetaData
+    const data = matterResult.data as MetaData;
 
     // Combine the data with the id
     return {
       id,
-      data
+      data,
     };
   });
 
@@ -100,4 +100,30 @@ export async function getPostData(id) {
     contentHtml,
     ...matterResult.data,
   };
+}
+
+export function getAllPostTags() {
+  // Get file names under /posts
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  const tmpMap = new Map<string, number>();
+
+  fileNames.forEach((fileName) => {
+    // Remove ".md" from file name to get id
+    const id = fileName.replace(/\.md$/, "");
+
+    // Read markdown file as string
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+
+    // Use gray-matter to parse the post metadata section
+    const matterResult = matter(fileContents);
+    const data = matterResult.data as MetaData;
+
+    data.tag.forEach((t) => {
+      tmpMap.get(t) ? tmpMap.set(t, tmpMap.get(t) + 1) : tmpMap.set(t, 1)
+    });
+  });
+
+  return [...tmpMap]
 }
