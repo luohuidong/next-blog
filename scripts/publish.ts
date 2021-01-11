@@ -1,8 +1,7 @@
-const { exec } = require("child_process");
-const path = require("path");
+import { exec } from "child_process";
+import path from "path";
 
-const checkFileExist = require("./utils/checkFileExist");
-const getFormattedDate = require("./utils/getFormattedDate");
+import checkFileExist from "./utils/checkFileExist";
 
 function publish() {
   const title = process.argv[2];
@@ -21,7 +20,7 @@ function publish() {
 
   if (!checkFileExist(originFilePath)) {
     console.error("[error] 发布文章不存在");
-    reutrn;
+    return;
   }
 
   exec(`git mv ${originFilePath} ${distFilePath}`, (error) => {

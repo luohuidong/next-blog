@@ -1,8 +1,8 @@
-const path = require("path");
+import path from "path";
 
-const getFormattedDate = require("./utils/getFormattedDate.js");
-const writeMarkdownFile = require("./utils/writeMarkdownFile");
-const checkFileExist = require("./utils/checkFileExist");
+import getFormattedDate from "./utils/getFormattedDate";
+import writeMarkdownFile from "./utils/writeMarkdownFile";
+import checkFileExist from "./utils/checkFileExist";
 
 function newDraft() {
   const title = process.argv[2];

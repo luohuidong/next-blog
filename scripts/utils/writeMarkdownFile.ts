@@ -1,5 +1,5 @@
-const fs = require("fs");
+import fs from "fs";
 
-module.exports = function writeMarkdownFile(filePath, data) {
+export default function writeMarkdownFile(filePath: string, data: string) {
   fs.writeFileSync(filePath, data);
-};
+}

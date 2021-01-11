@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-module.exports = function checkFileExist(path) {
+export default function checkFileExist(path: string) {
   let isExist = true;
 
   try {
@@ -10,4 +10,4 @@ module.exports = function checkFileExist(path) {
   }
 
   return isExist;
-};
+}
