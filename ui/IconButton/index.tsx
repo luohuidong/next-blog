@@ -2,13 +2,13 @@ import React from "react";
 
 import styles from "./index.module.scss";
 
-export default function GoHomeButton() {
+export default function IconButton(props: { src: string; title: string }) {
   return (
     <div className={styles.container}>
       <img
-        src="/icons/home.svg"
-        alt="Go Home"
-        title="Go Home"
+        src={props.src}
+        alt={props.title}
+        title={props.title}
         draggable={false}
       />
     </div>
