@@ -4,8 +4,7 @@ import Link from "next/link";
 
 import { getAllPostTags } from "@/lib/posts";
 import styles from "@/styles/tags.module.scss";
-import Layout from "@/components/Layout";
-import GoHomeButton from "@/ui/GoHomeButton";
+import TagLayout from "@/components/TagLayout";
 
 interface Props {
   tags: [string, number][];
@@ -13,24 +12,15 @@ interface Props {
 
 export default function Tags(props: Props) {
   return (
-    <Layout>
+    <TagLayout headerTitle="标签">
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h1>Tags</h1>
-
-          <Link href="/" as={`/`}>
-            <a>
-              <GoHomeButton />
-            </a>
-          </Link>
-        </div>
         {props.tags.map((tag) => (
           <span key={tag[0]} className={styles.tagText}>
             <a key={tag[0]}>{tag[0]}</a>
           </span>
         ))}
       </div>
-    </Layout>
+    </TagLayout>
   );
 }
 
