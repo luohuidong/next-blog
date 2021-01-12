@@ -1,13 +1,13 @@
 import React from "react";
-import Link from "next/link";
 
 import styles from "./index.module.scss";
 import Layout from "../Layout";
-import GoHomeButton from "@/ui/GoHomeButton";
+import ButtonLink from "./ButtonLink";
 
 interface Props {
   children: React.ReactNode;
   headerTitle: string;
+  showGoBackButton?: boolean;
 }
 
 export default function TagLayout(props: Props) {
@@ -17,11 +17,15 @@ export default function TagLayout(props: Props) {
         <div className={styles.header}>
           <h1>{props.headerTitle}</h1>
 
-          <Link href="/" as={`/`}>
-            <a>
-              <GoHomeButton />
-            </a>
-          </Link>
+          {props.showGoBackButton && (
+            <ButtonLink
+              href="/tags"
+              imgSrc="/icons/goback.svg"
+              title="Go Back"
+            />
+          )}
+
+          <ButtonLink href="/" imgSrc="/icons/home.svg" title="Go Home" />
         </div>
 
         {props.children}
