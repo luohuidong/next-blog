@@ -121,9 +121,14 @@ export function getAllPostTags() {
     const data = matterResult.data as MetaData;
 
     data.tag.forEach((t) => {
-      tmpMap.get(t) ? tmpMap.set(t, tmpMap.get(t) + 1) : tmpMap.set(t, 1)
+      tmpMap.get(t) ? tmpMap.set(t, tmpMap.get(t) + 1) : tmpMap.set(t, 1);
     });
   });
 
-  return [...tmpMap]
+  return [...tmpMap];
+}
+
+export function getPostListByTagName(tagname: string) {
+  const postsData = getSortedPostsData();
+  return postsData.filter(({ data }) => data.tag.includes(tagname));
 }
