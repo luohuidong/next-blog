@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import classnames from "classnames";
+import Link from "next/link";
 
 import Layout from "../Layout";
 import styles from "./index.module.scss";
@@ -44,6 +45,12 @@ export default function HomePageLayout(props: Props) {
           <h1 className={classnames(utilStyles.heading2Xl, styles.title)}>
             罗惠东
           </h1>
+
+          <nav>
+            <Link href="/tags">
+              <a>标签</a>
+            </Link>
+          </nav>
         </>
       </header>
 
