@@ -16,7 +16,9 @@ export default function Tags(props: Props) {
       <div className={styles.container}>
         {props.tags.map((tag) => (
           <span key={tag[0]} className={styles.tagText}>
-            <a key={tag[0]}>{tag[0]}</a>
+            <Link href="/tags/[tagname]" as={`/tags/${tag[0]}`}>
+              <a key={tag[0]}>{tag[0]}</a>
+            </Link>
           </span>
         ))}
       </div>
