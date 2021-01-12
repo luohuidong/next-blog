@@ -19,19 +19,20 @@ export default function PostListByTag(props: Props) {
   return (
     <TagLayout headerTitle={`标签 - ${props.tag}`} showGoBackButton>
       <ul style={{ listStyleType: "none" }}>
-        {props.postList.map((data) => (
-          <li key={data.postFileName} style={{ marginBottom: 20 }}>
-            <Link href="/posts/[id]" as={`/posts/${data.postFileName}`}>
-              <a>
-                <span style={{ display: "inline-block", width: 120 }}>
-                  <Dates timestamp={String(data.timestamp)} />
-                </span>
+        {props.postList &&
+          props.postList.map((data) => (
+            <li key={data.postFileName} style={{ marginBottom: 20 }}>
+              <Link href="/posts/[id]" as={`/posts/${data.postFileName}`}>
+                <a>
+                  <span style={{ display: "inline-block", width: 120 }}>
+                    <Dates timestamp={String(data.timestamp)} />
+                  </span>
 
-                {data.title}
-              </a>
-            </Link>
-          </li>
-        ))}
+                  {data.title}
+                </a>
+              </Link>
+            </li>
+          ))}
       </ul>
     </TagLayout>
   );
