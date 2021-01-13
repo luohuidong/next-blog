@@ -11,7 +11,12 @@ function newDraft() {
     return;
   }
 
-  const filePath = path.resolve(__dirname, "..", "draft", `${title}.md`);
+  const filePath = path.resolve(
+    __dirname,
+    "..",
+    "draft",
+    `${getFormattedDate()}.md`
+  );
 
   if (checkFileExist(filePath)) {
     console.error("[error] 文章已存在");
@@ -20,7 +25,6 @@ function newDraft() {
 
   const content = `---
 title: "${title}"
-date: "${new Date().valueOf()}"
 tag: [""]
 ---
   `;
