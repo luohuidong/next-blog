@@ -4,14 +4,13 @@ import Link from "next/link";
 
 import { getAllPostTags, getPostListByTagName } from "@/lib/posts";
 import TagLayout from "@/components/TagLayout";
-import Dates from "@/components/dates";
 
 interface Props {
   tag: string;
   postList: {
     title: string;
+    date: string;
     postFileName: string;
-    timestamp: number;
   }[];
 }
 
@@ -25,7 +24,7 @@ export default function PostListByTag(props: Props) {
               <Link href="/posts/[id]" as={`/posts/${data.postFileName}`}>
                 <a>
                   <span style={{ display: "inline-block", width: 120 }}>
-                    <Dates timestamp={String(data.timestamp)} />
+                    <time dateTime={data.date}>{data.date}</time>
                   </span>
 
                   {data.title}
@@ -57,9 +56,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       tag: tagname,
-      postList: postList.map(({ data, id }) => ({
+      postList: postList.map(({ data, id, date }) => ({
         title: data.title,
-        timestamp: data.timestamp,
+        date,
         postFileName: id,
       })),
     },

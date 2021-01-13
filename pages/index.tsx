@@ -5,15 +5,12 @@ import classnames from "classnames";
 
 import HomepageLayout from "@/components/HomePageLayout";
 import utilStyles from "@/styles/utils.module.css";
-import { getSortedPostsData, MetaData } from "@/lib/posts";
+import { getSortedPostsData, MetaData, SortedPostsData } from "@/lib/posts";
 import Date from "@/components/dates";
 import styles from "@/styles/index.module.scss";
 
 interface Props {
-  allPostsData: {
-    id: string;
-    data: MetaData;
-  }[];
+  allPostsData: SortedPostsData;
 }
 
 export default function Home({ allPostsData }: Props) {
@@ -24,7 +21,7 @@ export default function Home({ allPostsData }: Props) {
         style={{ marginTop: 30, maxWidth: 750 }}
       >
         <ul className={classnames(utilStyles.list, styles.list)}>
-          {allPostsData.map(({ id, data }) => (
+          {allPostsData.map(({ id, date, data }) => (
             <li
               className={classnames(utilStyles.listItem, styles.listItem)}
               key={id}
@@ -34,7 +31,7 @@ export default function Home({ allPostsData }: Props) {
               </Link>
 
               <small className={utilStyles.lightText}>
-                <Date timestamp={data.timestamp} />
+                <time dateTime={date}>{date}</time>
               </small>
             </li>
           ))}
@@ -44,7 +41,7 @@ export default function Home({ allPostsData }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {

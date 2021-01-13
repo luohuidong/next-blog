@@ -8,12 +8,19 @@ const postsDirectory = path.join(process.cwd(), "posts");
 
 export interface MetaData {
   title: string;
-  timestamp: string;
   tag: string[];
 }
 
+interface SortedPostsDataItem {
+  id: string;
+  date: string;
+  data: MetaData;
+}
+
+export type SortedPostsData = SortedPostsDataItem[];
+
 /** 获取排序过的文章数据 */
-export function getSortedPostsData() {
+export function getSortedPostsData(): SortedPostsData {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -32,6 +39,7 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
+      date: id,
       data,
     };
   });
@@ -43,7 +51,7 @@ export function getSortedPostsData() {
 
   // Sort posts by time
   return allPostsData.sort((a: PostData, b: PostData) => {
-    if (Number(a.data.timestamp) < Number(b.data.timestamp)) {
+    if (Date.parse(a.id) < Date.parse(b.id)) {
       return 1;
     } else {
       return -1;
@@ -79,9 +87,9 @@ export function getAllPostIds() {
 
 /**
  * 获取某篇文章的数据
- * @param {string} id
+ * @param {string} id 文件名
  */
-export async function getPostData(id) {
+export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -97,6 +105,7 @@ export async function getPostData(id) {
   // Combine the data with the id and contentHtml
   return {
     id,
+    date: id,
     contentHtml,
     ...matterResult.data,
   };

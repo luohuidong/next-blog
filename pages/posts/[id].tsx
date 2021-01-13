@@ -9,7 +9,15 @@ import { getAllPostIds, getPostData } from "lib/posts";
 import Layout from "@/components/PostPageLayout";
 import Date from "@/components/dates";
 
-export default function Post({ postData }) {
+interface Props {
+  postData: {
+    id: string;
+    date: string;
+    contentHtml: string;
+  };
+}
+
+export default function Post({ postData }: Props) {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -28,7 +36,7 @@ export default function Post({ postData }) {
         <h1>{postData.title}</h1>
 
         <div className={postsStyles.date}>
-          <Date timestamp={postData.timestamp} />
+          <time dateTime={postData.date}>{postData.id}</time>
         </div>
 
         <div
