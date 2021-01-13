@@ -85,11 +85,17 @@ export function getAllPostIds() {
   });
 }
 
+export type PostData = {
+  id: string;
+  date: string;
+  contentHtml: string;
+} & MetaData;
+
 /**
  * 获取某篇文章的数据
  * @param {string} id 文件名
  */
-export async function getPostData(id: string) {
+export async function getPostData(id: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -107,7 +113,7 @@ export async function getPostData(id: string) {
     id,
     date: id,
     contentHtml,
-    ...matterResult.data,
+    ...(matterResult.data as MetaData),
   };
 }
 

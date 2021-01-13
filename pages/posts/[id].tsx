@@ -5,15 +5,11 @@ import Prism from "prismjs";
 
 import postsStyles from "styles/post.module.scss";
 
-import { getAllPostIds, getPostData } from "lib/posts";
+import { getAllPostIds, getPostData, PostData } from "lib/posts";
 import Layout from "@/components/PostPageLayout";
 
 interface Props {
-  postData: {
-    id: string;
-    date: string;
-    contentHtml: string;
-  };
+  postData: PostData;
 }
 
 export default function Post({ postData }: Props) {
