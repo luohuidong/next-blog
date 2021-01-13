@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p 9001",
-    "draft": "ts-node ./scripts/draft.js",
-    "publish": "ts-node ./scripts/publish.js"
+    "draft": "ts-node --project tsconfig.script.json ./scripts/draft.ts",
+    "publish": "ts-node --project tsconfig.script.json ./scripts/publish.ts"
   },
   "dependencies": {
     "classnames": "^2.2.6",
