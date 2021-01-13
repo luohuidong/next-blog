@@ -7,7 +7,6 @@ import postsStyles from "styles/post.module.scss";
 
 import { getAllPostIds, getPostData } from "lib/posts";
 import Layout from "@/components/PostPageLayout";
-import Date from "@/components/dates";
 
 interface Props {
   postData: {

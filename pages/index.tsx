@@ -6,7 +6,6 @@ import classnames from "classnames";
 import HomepageLayout from "@/components/HomePageLayout";
 import utilStyles from "@/styles/utils.module.css";
 import { getSortedPostsData, MetaData, SortedPostsData } from "@/lib/posts";
-import Date from "@/components/dates";
 import styles from "@/styles/index.module.scss";
 
 interface Props {
