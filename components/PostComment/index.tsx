@@ -18,7 +18,7 @@ export default function PostComment() {
     if (div) {
       div.appendChild(utterances);
     }
-  }, [divRef.current]);
+  }, []);
 
   return <div ref={divRef} style={{ marginTop: 50 }}></div>;
 }
