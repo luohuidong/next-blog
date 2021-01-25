@@ -2,6 +2,7 @@ import { exec } from "child_process";
 import path from "path";
 
 import checkFileExist from "./utils/checkFileExist";
+import getFormattedDate from "./utils/getFormattedDate";
 
 function publish() {
   const filename = process.argv[2];
@@ -17,7 +18,12 @@ function publish() {
     "draft",
     `${filename}.md`
   );
-  const distFilePath = path.resolve(__dirname, "..", "posts", `${filename}.md`);
+  const distFilePath = path.resolve(
+    __dirname,
+    "..",
+    "posts",
+    `${getFormattedDate()}.md`
+  );
 
   if (!checkFileExist(originFilePath)) {
     console.error("[error] 文件不存在");

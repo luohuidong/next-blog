@@ -1,6 +1,6 @@
 import path from "path";
+import fs from "fs";
 
-import getFormattedDate from "./utils/getFormattedDate";
 import writeMarkdownFile from "./utils/writeMarkdownFile";
 import checkFileExist from "./utils/checkFileExist";
 
@@ -11,12 +11,13 @@ function newDraft() {
     return;
   }
 
-  const filePath = path.resolve(
-    __dirname,
-    "..",
-    "draft",
-    `${getFormattedDate()}.md`
-  );
+  const draftDirPath = path.resolve(__dirname, "../draft");
+  try {
+    fs.statSync(draftDirPath);
+  } catch (error) {
+    fs.mkdirSync(draftDirPath);
+  }
+  const filePath = path.resolve(draftDirPath, `${title}.md`);
 
   if (checkFileExist(filePath)) {
     console.error("[error] 文章已存在");
