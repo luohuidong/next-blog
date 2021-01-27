@@ -43,10 +43,6 @@ export default function PostTOC() {
         level: Number(result[1]),
       });
     });
-    console.log(
-      "🚀 ~ file: index.tsx ~ line 38 ~ useEffect ~ headerData",
-      headerData
-    );
 
     setHeaderData(headerData);
     setHighLightHeadingId(headerData[0] ? headerData[0].elementId : "");
@@ -77,7 +73,6 @@ export default function PostTOC() {
             id = heading.id;
           }
         });
-        console.log("id", id);
         setHighLightHeadingId(id);
       }
       const handler = throttle(handleScroll, 100);
