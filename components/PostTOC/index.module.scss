@@ -10,6 +10,13 @@
   }
 
   li {
+    box-sizing: border-box;
+    width: 200px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     margin: 10px 0;
     padding-bottom: 5px;
     font-size: 14px;
