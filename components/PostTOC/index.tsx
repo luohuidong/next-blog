@@ -88,15 +88,21 @@ export default function PostTOC() {
   return (
     <ul className={styles.toc}>
       {headerData.map((header) => (
-        <a key={header.elementId} href={`#${header.elementId}`}>
-          <li
-            className={classnames(styles[`level${header.level}`], {
+        <li
+          key={header.elementId}
+          className={classnames(styles[`level${header.level}`], {
+            [styles.highLight]: highLightHeadingId === header.elementId,
+          })}
+        >
+          <a
+            href={`#${header.elementId}`}
+            className={classnames({
               [styles.highLight]: highLightHeadingId === header.elementId,
             })}
           >
             {header.text}
-          </li>
-        </a>
+          </a>
+        </li>
       ))}
     </ul>
   );
