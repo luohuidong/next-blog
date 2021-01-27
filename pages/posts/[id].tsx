@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { GetStaticPaths } from "next";
 import Prism from "prismjs";
@@ -35,6 +35,7 @@ export default function Post({ postData }: Props) {
         </div>
 
         <div
+          id="post"
           dangerouslySetInnerHTML={createMarkup()}
           className={postsStyles.code}
         />
