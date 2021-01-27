@@ -31,6 +31,7 @@ export default function PostTOC() {
     text: string;
   }
   const [headerData, setHeaderData] = useState<Header[]>([]);
+  const [highLightHeadingId, setHighLightHeadingId] = useState<string>("");
   useEffect(() => {
     const headerData: Header[] = [];
     const regexp = /^h(\d)$/;
@@ -48,9 +49,9 @@ export default function PostTOC() {
     );
 
     setHeaderData(headerData);
+    setHighLightHeadingId(headerData[0] ? headerData[0].elementId : "");
   }, []);
 
-  const [highLightHeadingId, setHighLightHeadingId] = useState<string>("");
   useEffect(
     function () {
       function throttle(fn: Function, interval) {
