@@ -3,10 +3,18 @@
 .container {
   display: grid;
   grid-template-areas: "aside main toc";
-  grid-template-columns: 1fr minmax(400px, 800px) 1fr;
+  grid-template-columns: minmax(250px, auto) minmax(auto, 800px) minmax(
+      250px,
+      auto
+    );
 
   .main {
     grid-area: main;
+
+    .comment {
+      margin-top: 150px;
+      margin-bottom: 200px;
+    }
   }
 
   .toc {

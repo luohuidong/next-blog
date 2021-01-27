@@ -17,7 +17,9 @@ export default function PostPageLayout(props: Props) {
         <div className={styles.main}>
           <div>{props.children}</div>
 
-          <PostComment />
+          <div className={styles.comment}>
+            <PostComment />
+          </div>
         </div>
 
         <div className={styles.toc}>
