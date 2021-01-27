@@ -14,6 +14,11 @@
     padding-bottom: 5px;
     font-size: 14px;
 
+    &.highLight {
+      color: rgb(49, 120, 198);
+      font-weight: bold;
+    }
+
     &.level3 {
       padding-left: 20px;
     }
