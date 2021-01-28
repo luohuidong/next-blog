@@ -25,6 +25,10 @@ export default function Post({ postData }: Props) {
     <Layout>
       <Head>
         <title>{postData.title + " · 罗惠东的博客"}</title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+        />
       </Head>
 
       <article className={postsStyles.artical}>

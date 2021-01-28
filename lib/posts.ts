@@ -2,8 +2,11 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
-import remarkHtml from "remark-html";
 import remarkSlug from "remark-slug";
+import remarkMath from "remark-math";
+import remark2rehype from "remark-rehype";
+import katex from "rehype-katex";
+import stringify from "rehype-stringify";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -106,7 +109,10 @@ export async function getPostData(id: string): Promise<PostData> {
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(remarkSlug)
-    .use(remarkHtml)
+    .use(remarkMath)
+    .use(remark2rehype)
+    .use(katex)
+    .use(stringify)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
