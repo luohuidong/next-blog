@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { GetStaticPaths } from "next";
-import Prism from "prismjs";
+import classnames from "classnames";
 
 import postsStyles from "styles/post.module.scss";
 
 import { getAllPostIds, getPostData, PostData } from "lib/posts";
 import Layout from "@/components/PostPageLayout";
+import PostPrismCDN from "@/components/PostPrismCDN";
 
 interface Props {
   postData: PostData;
 }
 
 export default function Post({ postData }: Props) {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+  useEffect(() => {}, []);
 
   function createMarkup() {
     return { __html: postData.contentHtml };
@@ -31,6 +30,8 @@ export default function Post({ postData }: Props) {
         />
       </Head>
 
+      <PostPrismCDN />
+
       <article className={postsStyles.artical}>
         <h1>{postData.title}</h1>
 
@@ -41,7 +42,7 @@ export default function Post({ postData }: Props) {
         <div
           id="post"
           dangerouslySetInnerHTML={createMarkup()}
-          className={postsStyles.code}
+          className={classnames(postsStyles.code, "line-numbers")}
         />
       </article>
     </Layout>
