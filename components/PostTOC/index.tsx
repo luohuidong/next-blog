@@ -31,7 +31,6 @@ export default function PostTOC() {
     text: string;
   }
   const [headerData, setHeaderData] = useState<Header[]>([]);
-  const [highLightHeadingId, setHighLightHeadingId] = useState<string>("");
   useEffect(() => {
     const headerData: Header[] = [];
     const regexp = /^h(\d)$/;
@@ -45,9 +44,9 @@ export default function PostTOC() {
     });
 
     setHeaderData(headerData);
-    setHighLightHeadingId(headerData[0] ? headerData[0].elementId : "");
   }, []);
 
+  const [highLightHeadingId, setHighLightHeadingId] = useState<string>("");
   useEffect(
     function () {
       function throttle(fn: Function, interval) {
@@ -66,7 +65,7 @@ export default function PostTOC() {
 
       function handleScroll() {
         const firstHead = headerData[0];
-        let id = firstHead ? firstHead.elementId : "";
+        let id = "";
         getHeadings((heading) => {
           const top = heading.getBoundingClientRect().top;
           if (top <= 50) {
