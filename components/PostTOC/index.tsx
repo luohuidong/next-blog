@@ -10,6 +10,9 @@ export default function PostTOC() {
    */
   function getHeadings(cb: (headingNode: HTMLElement) => void) {
     const postContainer = document.getElementById("post");
+    if (!postContainer) {
+      return;
+    }
     const headerType = new Set(["h2", "h3", "h4", "h5", "h6"]);
     for (let child of postContainer.childNodes) {
       // 筛选指定类型的 header 元素
