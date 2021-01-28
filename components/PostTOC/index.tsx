@@ -55,19 +55,25 @@ export default function PostTOC() {
       function throttle(fn: Function, interval) {
         let timer: NodeJS.Timeout = null;
 
-        return function () {
-          if (timer) {
-            return;
-          }
-          timer = setTimeout(function () {
-            fn.call(this, arguments);
-            timer = null;
-          }, interval);
+        return {
+          fn: function () {
+            if (timer) {
+              return;
+            }
+            timer = setTimeout(function () {
+              fn.call(this, arguments);
+              timer = null;
+            }, interval);
+          },
+          clearTimer: function () {
+            if (timer) {
+              clearTimeout(timer);
+            }
+          },
         };
       }
 
       function handleScroll() {
-        const firstHead = headerData[0];
         let id = "";
         getHeadings((heading) => {
           const top = heading.getBoundingClientRect().top;
@@ -77,11 +83,12 @@ export default function PostTOC() {
         });
         setHighLightHeadingId(id);
       }
-      const handler = throttle(handleScroll, 100);
+      const { fn: handler, clearTimer } = throttle(handleScroll, 100);
       window.addEventListener("scroll", handler);
 
       return () => {
         window.removeEventListener("scroll", handler);
+        clearTimer();
       };
     },
     [headerData]
