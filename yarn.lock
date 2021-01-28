@@ -207,6 +207,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/classnames@npm:^2.2.11":
+  version: 2.2.11
+  resolution: "@types/classnames@npm:2.2.11::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fclassnames%2Fdownload%2F%40types%2Fclassnames-2.2.11.tgz"
+  checksum: 5bbd4fd0f803a46424152ecc89cfb88464af4d655634de8a98ec54977b0b6d9da107e799c24a2b66f0133438e84bac51b2275134cf028edea749fb018f731e89
+  languageName: node
+  linkType: hard
+
 "@types/hast@npm:^2.0.0":
   version: 2.3.1
   resolution: "@types/hast@npm:2.3.1::__archiveUrl=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fhast%2Fdownload%2F%40types%2Fhast-2.3.1.tgz"
@@ -3875,6 +3882,7 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
+    "@types/classnames": ^2.2.11
     "@types/node": ^14.14.22
     "@types/react": ^17.0.0
     classnames: ^2.2.6

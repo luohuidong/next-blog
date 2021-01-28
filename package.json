@@ -10,6 +10,7 @@
     "publish": "ts-node --project tsconfig.script.json ./scripts/publish.ts"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.11",
     "classnames": "^2.2.6",
     "gray-matter": "^4.0.2",
     "next": "^10.0.5",
