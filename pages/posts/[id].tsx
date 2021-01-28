@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Head from "next/head";
 import { GetStaticPaths } from "next";
 import classnames from "classnames";
@@ -14,12 +14,6 @@ interface Props {
 }
 
 export default function Post({ postData }: Props) {
-  useEffect(() => {}, []);
-
-  function createMarkup() {
-    return { __html: postData.contentHtml };
-  }
-
   return (
     <Layout>
       <Head>
@@ -41,7 +35,9 @@ export default function Post({ postData }: Props) {
 
         <div
           id="post"
-          dangerouslySetInnerHTML={createMarkup()}
+          dangerouslySetInnerHTML={{
+            __html: postData.contentHtml,
+          }}
           className={classnames(postsStyles.code, "line-numbers")}
         />
       </article>
