@@ -38,6 +38,29 @@ export default function PostPrismCDN() {
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"
         integrity="sha512-br8H6OngKoLht57WKRU5jz3Vr0vF+Tw4G6yhNN2F3dSDheq4JiaasROPJB1wy7PxPk7kV/+5AIbmoZLxxx7Zow=="
         crossOrigin="anonymous"
+        defer
+      ></script>
+
+      {/* 注册 toolbar */}
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.css"
+        integrity="sha512-DSAA0ziYwggOJ3QyWFZhIaU8bSwQLyfnyIrmShRLBdJMtiYKT7Ju35ujBCZ6ApK3HURt34p2xNo+KX9ebQNEPQ=="
+        crossOrigin="anonymous"
+      />
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.js"
+        integrity="sha512-cu2C9EssrOrVXT4thyL4gz/qWyh3Lq9XbICUXYyh3zJRCSKk1J08tBKPXnsSpdpZXOliaK/OJBygw/l0twAmwA=="
+        crossOrigin="anonymous"
+        defer
+      ></script>
+
+      {/* 展示语言类型 */}
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/show-language/prism-show-language.min.js"
+        integrity="sha512-G7WvXCOHqGZZLvRUz6cBmio+7/jTln5FUVCgJon2TtggY5TpYfJsTcSk6l8w+aB2ANf0oiUCeb+5CGrdoRb1Xg=="
+        crossOrigin="anonymous"
+        defer
       ></script>
     </Head>
   );
