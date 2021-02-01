@@ -1,0 +1,30 @@
+.card {
+  min-height: 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-bottom: 20px;
+  padding: 0 20px;
+
+  background: white;
+  border-radius: 10px;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  background: linear-gradient(
+    to left top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.8)
+  );
+
+  .title {
+    font-size: 18px;
+    text-decoration: none;
+    color: rgb(66, 102, 134);
+    margin-bottom: 5px;
+  }
+
+  small {
+    color: rgb(66, 102, 134);
+  }
+}
