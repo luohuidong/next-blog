@@ -15,7 +15,7 @@ export interface MetaData {
   tag: string[];
 }
 
-interface SortedPostsDataItem {
+export interface SortedPostsDataItem {
   id: string;
   date: string;
   data: MetaData;
