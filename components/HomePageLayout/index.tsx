@@ -25,8 +25,10 @@ export default function HomePageLayout(props: Props) {
 
       <div className={styles.container}>
         <div className={styles.glass}>
-          <Aside />
-          {props.children}
+          <aside>
+            <Aside />
+          </aside>
+          <main>{props.children}</main>
         </div>
       </div>
       <div className={classnames(styles.circle, styles.circle1)}></div>

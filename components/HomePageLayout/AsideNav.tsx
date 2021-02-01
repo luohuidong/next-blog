@@ -7,7 +7,7 @@ export default function AsideNav() {
   return (
     <div className={styles.nav}>
       <Link href="/tags">
-        <a>
+        <a style={{ width: 100 }}>
           <img
             src="/icons/bookmark.svg"
             alt=""

@@ -22,6 +22,14 @@
     );
     border-radius: 2rem;
   }
+
+  aside {
+    width: 300px;
+  }
+
+  main {
+    flex: 1;
+  }
 }
 
 .circle {

@@ -6,9 +6,9 @@ import AsideNav from "./AsideNav";
 
 export default function Aside() {
   return (
-    <aside className={styles.sidebar}>
+    <div className={styles.sidebar}>
       <AsideUser />
       <AsideNav />
-    </aside>
+    </div>
   );
 }
