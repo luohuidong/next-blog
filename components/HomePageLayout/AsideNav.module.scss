@@ -1,0 +1,15 @@
+.nav {
+  margin-top: 50px;
+
+  a {
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
+    span {
+      margin-left: 10px;
+    }
+  }
+}

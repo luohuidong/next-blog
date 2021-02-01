@@ -1,33 +1,48 @@
-@import "~@/styles/variables";
+.container {
+  height: 100vh;
 
-.header {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  margin-top: 20px;
+  .glass {
+    height: 80vh;
+    width: 60%;
 
-  .headerImage {
-    width: 8rem;
-    height: 8rem;
+    display: flex;
+
+    z-index: 2;
+    overflow: hidden;
+
+    backdrop-filter: blur(2rem);
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 2rem;
   }
 }
 
-.main {
-  margin: 0 20px;
-  display: flex;
-  justify-content: center;
-}
+.circle {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  height: 20rem;
+  width: 20rem;
+  border-radius: 50%;
 
-@media screen and (max-width: $mobile-width) {
-  .header {
-    .headerImage {
-      width: 4rem;
-      height: 4rem;
-    }
+  position: absolute;
 
-    .title {
-      font-size: 20px;
-    }
+  &.circle1 {
+    top: 5%;
+    right: 10%;
+  }
+
+  &.circle2 {
+    bottom: 5%;
+    left: 10%;
   }
 }

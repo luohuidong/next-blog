@@ -1,11 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import classnames from "classnames";
-import Link from "next/link";
 
 import Layout from "../Layout";
 import styles from "./index.module.scss";
-import utilStyles from "@/styles/utils.module.css";
+import Aside from "./Aside";
 
 interface Props {
   children: React.ReactNode;
@@ -24,37 +23,14 @@ export default function HomePageLayout(props: Props) {
         <title>首页 · 罗惠东的博客</title>
       </Head>
 
-      <header className={styles.header}>
-        <>
-          <picture>
-            <source
-              media="(max-width: 500px)"
-              srcSet="http://images.luohuidong.cn/profile.jpeg?imageMogr2/thumbnail/!7p"
-            />
-            <img
-              src="http://images.luohuidong.cn/profile.jpeg?imageMogr2/thumbnail/!13p"
-              alt="头像"
-              className={classnames(
-                styles.headerImage,
-                utilStyles.borderCircle
-              )}
-              draggable={false}
-            />
-          </picture>
-
-          <h1 className={classnames(utilStyles.heading2Xl, styles.title)}>
-            罗惠东
-          </h1>
-
-          <nav>
-            <Link href="/tags">
-              <a>标签</a>
-            </Link>
-          </nav>
-        </>
-      </header>
-
-      <main className={styles.main}>{props.children}</main>
+      <div className={styles.container}>
+        <div className={styles.glass}>
+          <Aside />
+          {props.children}
+        </div>
+      </div>
+      <div className={classnames(styles.circle, styles.circle1)}></div>
+      <div className={classnames(styles.circle, styles.circle2)}></div>
     </Layout>
   );
 }
