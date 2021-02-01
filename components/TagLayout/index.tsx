@@ -14,21 +14,23 @@ export default function TagLayout(props: Props) {
   return (
     <Layout>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h1>{props.headerTitle}</h1>
+        <div className={styles.innerContainer}>
+          <div className={styles.header}>
+            <h1>{props.headerTitle}</h1>
 
-          {props.showGoBackButton && (
-            <ButtonLink
-              href="/tags"
-              imgSrc="/icons/goback.svg"
-              title="Go Back"
-            />
-          )}
+            {props.showGoBackButton && (
+              <ButtonLink
+                href="/tags"
+                imgSrc="/icons/goback.svg"
+                title="Go Back"
+              />
+            )}
 
-          <ButtonLink href="/" imgSrc="/icons/home.svg" title="Go Home" />
+            <ButtonLink href="/" imgSrc="/icons/home.svg" title="Go Home" />
+          </div>
+
+          {props.children}
         </div>
-
-        {props.children}
       </div>
     </Layout>
   );
