@@ -1,17 +1,10 @@
-@import "~@/styles/variables";
+.container {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px 40px;
 
-.listItem {
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (max-width: $mobile-width) {
-  .list {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .listItemTitle {
-    font-size: 16px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

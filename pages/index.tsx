@@ -4,9 +4,9 @@ import { GetStaticProps } from "next";
 import classnames from "classnames";
 
 import HomepageLayout from "@/components/HomePageLayout";
-import utilStyles from "@/styles/utils.module.css";
 import { getSortedPostsData, MetaData, SortedPostsData } from "@/lib/posts";
 import styles from "@/styles/index.module.scss";
+import HomePagePostList from "@/components/HomePagePostList";
 
 interface Props {
   allPostsData: SortedPostsData;
@@ -15,26 +15,16 @@ interface Props {
 export default function Home({ allPostsData }: Props) {
   return (
     <HomepageLayout>
-      <section
-        className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
-        style={{ marginTop: 30, maxWidth: 750 }}
-      >
-        <ul className={classnames(utilStyles.list, styles.list)}>
-          {allPostsData.map(({ id, date, data }) => (
-            <li
-              className={classnames(utilStyles.listItem, styles.listItem)}
-              key={id}
-            >
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a className={styles.listItemTitle}>{data.title}</a>
-              </Link>
+      <section className={styles.container}>
+        <h1
+          style={{
+            color: "#426686",
+          }}
+        >
+          最新文章
+        </h1>
 
-              <small className={utilStyles.lightText}>
-                <time dateTime={date}>{date}</time>
-              </small>
-            </li>
-          ))}
-        </ul>
+        <HomePagePostList allPostsData={allPostsData} />
       </section>
     </HomepageLayout>
   );
