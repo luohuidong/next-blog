@@ -13,14 +13,16 @@ interface Props {
 
 export default function Card({ id, data, date }: Props) {
   return (
-    <li key={id} className={styles.card}>
-      <Link href="/posts/[id]" as={`/posts/${id}`}>
-        <a className={styles.title}>{data.title}</a>
-      </Link>
+    <Link href="/posts/[id]" as={`/posts/${id}`}>
+      <a style={{ textDecoration: "none" }}>
+        <li className={styles.card}>
+          <span className={styles.title}>{data.title}</span>
 
-      <small>
-        <time dateTime={date}>{date}</time>
-      </small>
-    </li>
+          <small>
+            <time dateTime={date}>{date}</time>
+          </small>
+        </li>
+      </a>
+    </Link>
   );
 }
