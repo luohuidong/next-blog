@@ -16,17 +16,17 @@ export default function TagLayout(props: Props) {
       <div className={styles.container}>
         <div className={styles.innerContainer}>
           <div className={styles.header}>
-            <h1>{props.headerTitle}</h1>
+            <h1 style={{ color: "rgb(66, 102, 134)" }}>{props.headerTitle}</h1>
 
             {props.showGoBackButton && (
               <ButtonLink
                 href="/tags"
-                imgSrc="/icons/goback.svg"
-                title="Go Back"
+                imgSrc="/icons/goback.png"
+                title="返回"
               />
             )}
 
-            <ButtonLink href="/" imgSrc="/icons/home.svg" title="Go Home" />
+            <ButtonLink href="/" imgSrc="/icons/home.png" title="首页" />
           </div>
 
           {props.children}
