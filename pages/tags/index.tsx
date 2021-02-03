@@ -1,36 +1,33 @@
 import React from "react";
 import type { GetStaticProps } from "next";
-import Link from "next/link";
 
 import { getAllPostTags } from "@/lib/posts";
-import styles from "@/styles/tags.module.scss";
-import TagLayout from "@/components/TagLayout";
+import { PageLayout, WordsList } from "@/components/CategoryAndTag";
 
 interface Props {
-  tags: [string, number][];
+  words: {
+    word: string;
+    count: number;
+  }[];
 }
 
 export default function Tags(props: Props) {
   return (
-    <TagLayout headerTitle="标签">
-      <div className={styles.container}>
-        {props.tags.map((tag) => (
-          <span key={tag[0]} className={styles.tagText}>
-            <Link href="/tags/[tagname]" as={`/tags/${tag[0]}`}>
-              <a key={tag[0]}>{tag[0]}</a>
-            </Link>
-          </span>
-        ))}
-      </div>
-    </TagLayout>
+    <PageLayout headerTitle="标签">
+      <WordsList words={props.words} type="tags" />
+    </PageLayout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const tags = getAllPostTags();
+  const words = tags.map((tag) => ({
+    word: tag[0],
+    count: tag[1],
+  }));
   return {
     props: {
-      tags,
+      words,
     },
   };
 };
