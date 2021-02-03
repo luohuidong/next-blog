@@ -1,10 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import { GetStaticProps } from "next";
-import classnames from "classnames";
 
 import HomepageLayout from "@/components/HomePageLayout";
-import { getSortedPostsData, MetaData, SortedPostsData } from "@/lib/posts";
+import { getSortedPostsData, SortedPostsData } from "@/lib/posts";
 import styles from "@/styles/index.module.scss";
 import HomePagePostList from "@/components/HomePagePostList";
 
