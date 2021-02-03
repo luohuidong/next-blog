@@ -1,1 +1,3 @@
 - [博客所使用的 Icons](https://icons8.com/icon/pack/free-icons/cute-clipart)
+- 包管理器使用 Yarn 2
+- 框架：Next
