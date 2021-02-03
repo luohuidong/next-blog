@@ -3,8 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 
 import { getAllPostTags, getPostListByTagName } from "@/lib/posts";
-import TagLayout from "@/components/TagLayout";
-
+import { PageLayout, PostsList } from "@/components/CategoryAndTag";
 interface Props {
   tag: string;
   postList: {
@@ -16,24 +15,13 @@ interface Props {
 
 export default function PostListByTag(props: Props) {
   return (
-    <TagLayout headerTitle={`标签 - ${props.tag}`} showGoBackButton>
-      <ul style={{ listStyleType: "none" }}>
-        {props.postList &&
-          props.postList.map((data) => (
-            <li key={data.postFileName} style={{ marginBottom: 20 }}>
-              <Link href="/posts/[id]" as={`/posts/${data.postFileName}`}>
-                <a>
-                  <span style={{ display: "inline-block", width: 120 }}>
-                    <time dateTime={data.date}>{data.date}</time>
-                  </span>
-
-                  {data.title}
-                </a>
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </TagLayout>
+    <PageLayout
+      headerTitle={`标签 - ${props.tag}`}
+      showGoBackButton
+      goBackButtonHref="/tags"
+    >
+      <PostsList postList={props.postList} />
+    </PageLayout>
   );
 }
 
