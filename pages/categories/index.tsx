@@ -14,7 +14,7 @@ interface Props {
 export default function Tags(props: Props) {
   return (
     <PageLayout headerTitle="分类">
-      <WordsList words={props.words} />
+      <WordsList words={props.words} type="categories" />
     </PageLayout>
   );
 }

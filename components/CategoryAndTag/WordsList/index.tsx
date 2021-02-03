@@ -8,6 +8,7 @@ interface Props {
     word: string;
     count: number;
   }[];
+  type: "categories" | "tags";
 }
 
 export default function WordsList(props: Props) {
@@ -15,7 +16,10 @@ export default function WordsList(props: Props) {
     <div className={styles.container}>
       {props.words.map(({ word }) => (
         <span key={word} className={styles.tagText}>
-          <Link href="/categories/[categories]" as={`/categories/${word}`}>
+          <Link
+            href={`/${props.type}/[${props.type}]`}
+            as={`/${props.type}/${word}`}
+          >
             <a>{word}</a>
           </Link>
         </span>
