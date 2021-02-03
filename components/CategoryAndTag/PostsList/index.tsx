@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import styles from "./index.module.scss";
+
 interface Props {
   postList: {
     title: string;
@@ -11,13 +13,13 @@ interface Props {
 
 export default function CommonPostList(props: Props) {
   return (
-    <ul style={{ listStyleType: "none" }}>
+    <ul className={styles.list}>
       {props.postList &&
         props.postList.map((data) => (
-          <li key={data.postFileName} style={{ marginBottom: 20 }}>
+          <li key={data.postFileName} className={styles.listItem}>
             <Link href="/posts/[id]" as={`/posts/${data.postFileName}`}>
-              <a style={{ color: "#426686" }}>
-                <span style={{ display: "inline-block", width: 120 }}>
+              <a className={styles.link}>
+                <span className={styles.time}>
                   <time dateTime={data.date}>{data.date}</time>
                 </span>
 

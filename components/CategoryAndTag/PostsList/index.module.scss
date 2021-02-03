@@ -1,0 +1,17 @@
+.list {
+  list-style-type: none;
+
+  .listItem {
+    margin-bottom: 20px;
+
+    .link {
+      color: #426686;
+      text-decoration: none;
+
+      .time {
+        display: inline-block;
+        width: 120px;
+      }
+    }
+  }
+}
