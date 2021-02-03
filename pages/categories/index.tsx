@@ -1,9 +1,7 @@
 import React from "react";
 import type { GetStaticProps } from "next";
-import Link from "next/link";
 
 import { getAllPostCategories } from "@/lib/posts";
-import styles from "@/styles/tags.module.scss";
 import { PageLayout, WordsList } from "@/components/CategoryAndTag";
 
 interface Props {
