@@ -1,9 +1,8 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Link from "next/link";
 
 import { getAllPostCategories, getPostListByCategory } from "@/lib/posts";
-import TagLayout from "@/components/TagLayout";
+import { PageLayout, PostsList } from "@/components/CategoryAndTag";
 
 interface Props {
   category: string;
@@ -16,24 +15,13 @@ interface Props {
 
 export default function PostListByTag(props: Props) {
   return (
-    <TagLayout headerTitle={`分类 - ${props.category}`} showGoBackButton>
-      <ul style={{ listStyleType: "none" }}>
-        {props.postList &&
-          props.postList.map((data) => (
-            <li key={data.postFileName} style={{ marginBottom: 20 }}>
-              <Link href="/posts/[id]" as={`/posts/${data.postFileName}`}>
-                <a style={{ color: "#426686" }}>
-                  <span style={{ display: "inline-block", width: 120 }}>
-                    <time dateTime={data.date}>{data.date}</time>
-                  </span>
-
-                  {data.title}
-                </a>
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </TagLayout>
+    <PageLayout
+      headerTitle={`分类 - ${props.category}`}
+      showGoBackButton
+      goBackButtonHref="/categories"
+    >
+      <PostsList postList={props.postList} />
+    </PageLayout>
   );
 }
 
