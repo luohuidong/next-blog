@@ -12,6 +12,7 @@ const postsDirectory = path.join(process.cwd(), "posts");
 
 export interface MetaData {
   title: string;
+  category: string;
   tag: string[];
 }
 
@@ -132,9 +133,6 @@ export function getAllPostTags() {
   const tmpMap = new Map<string, number>();
 
   fileNames.forEach((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, "");
-
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -154,4 +152,33 @@ export function getAllPostTags() {
 export function getPostListByTagName(tagname: string) {
   const postsData = getSortedPostsData();
   return postsData.filter(({ data }) => data.tag.includes(tagname));
+}
+
+export function getAllPostCategories() {
+  // Get file names under /posts
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  const tmpMap = new Map<string, number>();
+
+  fileNames.forEach((fileName) => {
+    // Read markdown file as string
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+
+    // Use gray-matter to parse the post metadata section
+    const matterResult = matter(fileContents);
+    const data = matterResult.data as MetaData;
+
+    const category = data.category;
+    tmpMap.get(category)
+      ? tmpMap.set(category, tmpMap.get(category) + 1)
+      : tmpMap.set(category, 1);
+  });
+
+  return [...tmpMap];
+}
+
+export function getPostListByCategory(category: string) {
+  const postsData = getSortedPostsData();
+  return postsData.filter(({ data }) => data.category.includes(category));
 }
