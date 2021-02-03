@@ -1,0 +1,35 @@
+.container {
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+
+  .innerContainer {
+    width: 60%;
+    height: 80%;
+    box-sizing: border-box;
+    padding: 50px;
+
+    backdrop-filter: blur(2rem);
+    background: linear-gradient(
+      to left bottom,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0.8)
+    );
+    border-radius: 2rem;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.5);
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+
+      h1 {
+        flex: 1;
+      }
+    }
+  }
+}
