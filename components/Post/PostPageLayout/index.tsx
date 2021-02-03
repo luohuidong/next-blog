@@ -2,9 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 import styles from "./index.module.scss";
-import Layout from "../Layout";
-import PostComment from "../PostComment";
-import PostTOC from "../PostTOC";
+import Layout from "@/components/Layout";
+import { PostTOC, PostComment } from "@/components/Post";
 
 interface Props {
   children: React.ReactNode;

@@ -6,8 +6,7 @@ import classnames from "classnames";
 import postsStyles from "styles/post.module.scss";
 
 import { getAllPostIds, getPostData, PostData } from "lib/posts";
-import Layout from "@/components/PostPageLayout";
-import PostPrismCDN from "@/components/PostPrismCDN";
+import { PostPageLayout, PostPrismCDN } from "@/components/Post";
 
 interface Props {
   postData: PostData;
@@ -15,7 +14,7 @@ interface Props {
 
 export default function Post({ postData }: Props) {
   return (
-    <Layout>
+    <PostPageLayout>
       <Head>
         <title>{postData.title + " · 罗惠东的博客"}</title>
         <link
@@ -41,7 +40,7 @@ export default function Post({ postData }: Props) {
           className={classnames(postsStyles.code, "line-numbers")}
         />
       </article>
-    </Layout>
+    </PostPageLayout>
   );
 }
 
