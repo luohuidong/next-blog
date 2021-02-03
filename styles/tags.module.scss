@@ -1,6 +1,13 @@
 .container {
   .tagText {
+    display: inline-block;
+
     margin-right: 25px;
+    margin-bottom: 25px;
+
+    a {
+      text-decoration: none;
+    }
 
     a:hover {
       cursor: pointer;
