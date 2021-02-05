@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 9001",
+    "start": "next start",
     "draft": "ts-node --project tsconfig.script.json ./scripts/draft.ts",
     "publish": "ts-node --project tsconfig.script.json ./scripts/publish.ts"
   },
