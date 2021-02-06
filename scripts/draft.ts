@@ -26,6 +26,7 @@ function newDraft() {
 
   const content = `---
 title: "${title}"
+category: ""
 tag: [""]
 ---
   `;
