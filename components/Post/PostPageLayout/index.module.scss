@@ -21,8 +21,17 @@
     grid-area: toc;
 
     .innerContainer {
+      display: flow-root;
+      box-sizing: border-box;
+
       position: sticky;
-      top: 100px;
+      top: 0;
+      right: 0;
+
+      max-height: 100vh;
+      overflow-y: auto;
+
+      padding-top: 100px;
     }
   }
 
