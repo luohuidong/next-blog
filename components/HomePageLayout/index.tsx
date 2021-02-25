@@ -3,6 +3,7 @@ import Head from "next/head";
 import classnames from "classnames";
 
 import Layout from "../Layout";
+import LayoutFooter from "@/components/LayoutFooter";
 import styles from "./index.module.scss";
 import Aside from "./Aside";
 
@@ -33,6 +34,9 @@ export default function HomePageLayout(props: Props) {
       </div>
       <div className={classnames(styles.circle, styles.circle1)}></div>
       <div className={classnames(styles.circle, styles.circle2)}></div>
+      <div className={styles.footer}>
+        <LayoutFooter />
+      </div>
     </Layout>
   );
 }
